@@ -12,8 +12,13 @@ const http = require("http");
     create server recieves a callback where request and response can be handled
 */
 const server = http.createServer((req, res) => {
-  res.write("Hello World!");
-  res.end();
+  if (req.url === "/") {
+    res.write("Hello World!");
+    res.end();
+  } else if (req.url === "/about") {
+    res.write("Hello About!");
+    res.end();
+  }
 });
 
 /* 
